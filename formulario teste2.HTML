@@ -44,7 +44,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
-        .pedido select, .pedido input {
+        .pedido input {
             flex: 1 1 120px;
             padding: 6px;
             font-size: 0.9rem;
@@ -106,7 +106,7 @@
                 font-size: 1.2rem;
             }
 
-            .pedido select, .pedido input {
+            .pedido input {
                 flex: 1 1 100px;
                 padding: 4px;
                 font-size: 0.8rem;
@@ -134,7 +134,7 @@
                 padding: 8px;
             }
 
-            .pedido select, .pedido input {
+            .pedido input {
                 flex: 1 1 100%;
                 font-size: 0.75rem;
             }
@@ -180,31 +180,14 @@
         const pedidoDiv = document.createElement("div");
         pedidoDiv.classList.add("pedido");
         pedidoDiv.innerHTML = `
-            <select name="modelo_${contadorPedidos}" required>
-                <option value="">Selecione o modelo</option>
-                <option value="Camiseta mas">Camiseta MASCULINA</option>
-                <option value="Camiseta fem">Camiseta FEMININA</option>
-                <option value="Camiseta inf">Camiseta INFANTIL</option>
-                <option value="Bluza Moleton">Bluza Moleton</option>
-                <option value="Calça Moleton">Calça Moleton</option>
-                <option value="Baby Look">Baby Look</option>
-            </select>
-            <select name="cor_${contadorPedidos}" required>
-                <option value="">Selecione a cor</option>
-                <option value="Verde">Verde</option>
-                <option value="Azul">Azul</option>
-                <option value="Vermelho">Vermelho</option>
-                <option value="Preto">Preto</option>
-            </select>
-            <select name="tamanho_${contadorPedidos}" required>
-                <option value="">Selecione o tamanho</option>
-                <option value="P">P</option>
-                <option value="M">M</option>
-                <option value="G">G</option>
-                <option value="GG">GG</option>
-            </select>
+            <label for="modelo_${contadorPedidos}">Modelo:</label>
+            <input type="text" name="modelo_${contadorPedidos}" placeholder="Ex: Camiseta Masculina" required>
+            <label for="cor_${contadorPedidos}">Cor:</label>
+            <input type="text" name="cor_${contadorPedidos}" placeholder="Ex: Verde, Azul" required>
+            <label for="tamanho_${contadorPedidos}">Tamanho:</label>
+            <input type="text" name="tamanho_${contadorPedidos}" placeholder="Ex: P, M, G" required>
             <label for="quantidade_${contadorPedidos}">Quantidade:</label>
-            <input type="text" style="width 10%" name="quantidade_${contadorPedidos}" id="quantidade_${contadorPedidos}" min="1" max="3" required>
+            <input type="number" name="quantidade_${contadorPedidos}" id="quantidade_${contadorPedidos}" min="1" max="3" required>
             <div class="botoes">
                 <button type="button" class="adicionar" onclick="adicionarPedido()">Adicionar</button>
                 <button type="button" onclick="removerPedido(this)">Remover</button>
@@ -244,4 +227,3 @@
 
 </body>
 </html>
-
