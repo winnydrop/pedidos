@@ -32,46 +32,56 @@
             font-size: 1.5rem;
         }
 
-        .pedido {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            flex-wrap: wrap;
+        table {
+            width: 100%;
+            border-spacing: 10px;
         }
 
-        .pedido label {
-            font-size: 0.8rem;
-            margin-right: 5px;
+        th {
+            text-align: left;
+            font-size: 1rem;
+            padding-bottom: 8px;
         }
 
-        .pedido select, .pedido input {
+        td {
+            padding: 5px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        select, input[type="text"], input[type="number"] {
             padding: 6px;
             font-size: 0.9rem;
             border-radius: 4px;
             border: 1px solid #ccc;
+            width: 100%;
         }
 
-        .pedido input[type="number"] {
-            max-width: 80px;
+        .pedido {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
         }
 
         .botoes {
             display: flex;
-            gap: 4px;
+            gap: 10px;
+            justify-content: flex-start;
+            margin-top: 10px;
         }
 
         .botoes button {
             background-color: #f44336;
             color: white;
             border: none;
-            padding: 4px 6px;
+            padding: 6px 10px;
             border-radius: 4px;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             cursor: pointer;
         }
 
@@ -105,17 +115,11 @@
                 --base-font-size: 14px;
             }
 
-            h1 {
-                font-size: 1.2rem;
-            }
-
-            .pedido select, .pedido input {
-                padding: 4px;
+            .pedido label {
                 font-size: 0.8rem;
             }
 
             .botoes button {
-                padding: 4px 6px;
                 font-size: 0.7rem;
             }
 
@@ -131,23 +135,11 @@
             }
 
             .pedido {
-                flex-direction: column;
-                gap: 5px;
                 padding: 8px;
-            }
-
-            .pedido select, .pedido input {
-                font-size: 0.75rem;
-            }
-
-            .botoes {
-                flex-wrap: wrap;
-                gap: 3px;
             }
 
             .botoes button {
                 flex: 1 1 48%;
-                padding: 3px 5px;
                 font-size: 0.6rem;
             }
 
@@ -180,35 +172,57 @@
 
         const pedidoDiv = document.createElement("div");
         pedidoDiv.classList.add("pedido");
+
         pedidoDiv.innerHTML = `
-            <label for="modelo_${contadorPedidos}">Modelo:</label>
-            <select name="modelo_${contadorPedidos}" required>
-                <option value=""></option>
-                <option value="Camiseta mas">Camiseta MASCULINA</option>
-                <option value="Camiseta fem">Camiseta FEMININA</option>
-                <option value="Camiseta inf">Camiseta INFANTIL</option>
-                <option value="Bluza Moleton">Bluza Moleton</option>
-                <option value="Calça Moleton">Calça Moleton</option>
-                <option value="Baby Look">Baby Look</option>
-            </select>
-            <label for="cor_${contadorPedidos}">Cor:</label>
-            <select name="cor_${contadorPedidos}" required>
-                <option value=""></option>
-                <option value="Verde">Verde</option>
-                <option value="Azul">Azul</option>
-                <option value="Vermelho">Vermelho</option>
-                <option value="Preto">Preto</option>
-            </select>
-            <label for="tamanho_${contadorPedidos}">Tamanho:</label>
-            <select name="tamanho_${contadorPedidos}" required>
-                <option value=""></option>
-                <option value="P">P</option>
-                <option value="M">M</option>
-                <option value="G">G</option>
-                <option value="GG">GG</option>
-            </select>
-            <label for="quantidade_${contadorPedidos}">Qtd:</label>
-            <input type="text" name="quantidade_${contadorPedidos}" id="quantidade_${contadorPedidos}" size="3" required>
+            <table>
+                <tr>
+                    <th colspan="2">Pedido ${contadorPedidos}</th>
+                </tr>
+                <tr>
+                    <td><label for="modelo_${contadorPedidos}">Modelo:</label></td>
+                    <td>
+                        <select name="modelo_${contadorPedidos}" required>
+                            <option value=""></option>
+                            <option value="Camiseta mas">Camiseta MASCULINA</option>
+                            <option value="Camiseta fem">Camiseta FEMININA</option>
+                            <option value="Camiseta inf">Camiseta INFANTIL</option>
+                            <option value="Bluza Moleton">Bluza Moleton</option>
+                            <option value="Calça Moleton">Calça Moleton</option>
+                            <option value="Baby Look">Baby Look</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="cor_${contadorPedidos}">Cor:</label></td>
+                    <td>
+                        <select name="cor_${contadorPedidos}" required>
+                            <option value=""></option>
+                            <option value="Verde">Verde</option>
+                            <option value="Azul">Azul</option>
+                            <option value="Vermelho">Vermelho</option>
+                            <option value="Preto">Preto</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="tamanho_${contadorPedidos}">Tamanho:</label></td>
+                    <td>
+                        <select name="tamanho_${contadorPedidos}" required>
+                            <option value=""></option>
+                            <option value="P">P</option>
+                            <option value="M">M</option>
+                            <option value="G">G</option>
+                            <option value="GG">GG</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="quantidade_${contadorPedidos}">Qtd:</label></td>
+                    <td>
+                        <input type="number" name="quantidade_${contadorPedidos}" id="quantidade_${contadorPedidos}" size="3" required>
+                    </td>
+                </tr>
+            </table>
             <div class="botoes">
                 <button type="button" class="adicionar" onclick="adicionarPedido()">ADICIONAR ITEM</button>
                 <button type="button" onclick="removerPedido(this)">Remover</button>
@@ -248,3 +262,4 @@
 
 </body>
 </html>
+
